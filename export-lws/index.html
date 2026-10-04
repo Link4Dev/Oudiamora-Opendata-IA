@@ -10,68 +10,203 @@
   <meta property="og:title" content="Oudiamora.net – Open Data, IA &amp; Société Civile">
   <meta property="og:description" content="Renforcer les capacités des organisations de la société civile pour mieux comprendre, utiliser et gouverner les données et l'intelligence artificielle.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/images/hero-data-africa.jpg">
+  <meta property="og:site_name" content="Oudiamora.net">
+  <meta property="og:locale" content="fr_FR">
   
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Crect width='100' height='100' rx='24' fill='%230B2533'/%3E%3Cpath d='M 50 16 A 34 34 0 1 0 84 58' stroke='%232EC4B6' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='16' r='6' fill='%2338A3A5'/%3E%3Ccircle cx='18' cy='66' r='6' fill='%2352B788'/%3E%3Ccircle cx='84' cy='58' r='6' fill='%232EC4B6'/%3E%3Ccircle cx='50' cy='50' r='17' stroke='%23FFFFFF' stroke-width='5'/%3E%3Cpath d='M 39 52 Q 50 63 61 52' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN (Garantit que le site est 100% stylé immédiatement sur LWS sans dépendance de fichier) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0B2533',
+              navy: '#0F3244',
+              teal: '#2EC4B6',
+              mint: '#52B788',
+              accent: '#38A3A5'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Fallback CSS au cas où aucun script externe ne chargerait -->
+  <style>
+    body { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+    .font-display { font-family: 'Syne', sans-serif; }
+    /* Sécurité stricte pour que le logo ne dépasse JAMAIS 240px */
+    .brand-logo-img { max-width: 220px !important; width: 100% !important; height: auto !important; }
+  </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-teal-500/20 selection:text-teal-900 min-h-screen flex flex-col">
 
   <!-- ==========================================
        1. NAVIGATION STICKY
        ========================================== -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#hero" class="brand-logo">
-        <img src="./assets/images/logo-oudiamora.svg" alt="Oudiamora.net - Open Data + IA" width="180" height="44">
-      </a>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Brand Lockup (Intégré en SVG inline vectoriel avec taille strictement verrouillée) -->
+        <a href="#hero" class="flex items-center gap-3 focus:outline-none" style="max-width: 240px;">
+          <svg class="brand-logo-img" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 220px; width: 100%; height: auto;">
+            <!-- Orbit emblem -->
+            <g transform="translate(10, 8)">
+              <path d="M 52 14 A 42 42 0 1 0 94 65" fill="none" stroke="#2EC4B6" stroke-width="5" stroke-linecap="round" />
+              <circle cx="52" cy="14" r="7.5" fill="#38A3A5" stroke="#FFFFFF" stroke-width="2" />
+              <circle cx="15" cy="74" r="7.5" fill="#52B788" stroke="#FFFFFF" stroke-width="2" />
+              <circle cx="94" cy="65" r="8" fill="#13384A" stroke="#FFFFFF" stroke-width="2" />
+              <circle cx="55" cy="52" r="21" fill="none" stroke="#0F3244" stroke-width="5.5" />
+              <path d="M 41 55 Q 55 70 69 55" fill="none" stroke="#0F3244" stroke-width="5" stroke-linecap="round" />
+            </g>
+            <!-- Typography: Oudiamora.net -->
+            <text x="125" y="65" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="44" font-weight="700" letter-spacing="-0.03em" fill="#0E3346">
+              Oudiamora<tspan fill="#2EC4B6">.</tspan>net
+            </text>
+            <!-- Tagline: Open Data + IA -->
+            <text x="128" y="96" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="500" letter-spacing="0.04em" fill="#5A6E7C">
+              Open Data + IA
+            </text>
+          </svg>
+        </a>
 
-      <nav class="nav-links">
-        <a href="#hero">Accueil</a>
-        <a href="#pourquoi">Pourquoi</a>
-        <a href="#piliers">Piliers</a>
-        <a href="#approche">Approche</a>
-        <a href="#ressources">Ressources</a>
-        <a href="#communaute">Communauté</a>
-      </nav>
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+          <a href="#hero" class="hover:text-teal-600 transition-colors">Accueil</a>
+          <a href="#pourquoi" class="hover:text-teal-600 transition-colors">Pourquoi</a>
+          <a href="#piliers" class="hover:text-teal-600 transition-colors">Piliers</a>
+          <a href="#approche" class="hover:text-teal-600 transition-colors">Approche</a>
+          <a href="#ressources" class="hover:text-teal-600 transition-colors">Ressources</a>
+          <a href="#communaute" class="hover:text-teal-600 transition-colors">Communauté</a>
+        </nav>
 
-      <a href="#communaute" class="btn-primary">
-        Rejoindre la communauté
-      </a>
+        <!-- CTA & Mobile Trigger -->
+        <div class="flex items-center gap-3">
+          <a href="#communaute" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-lg text-white bg-teal-600 hover:bg-teal-500 transition-colors shadow-sm">
+            <span>Rejoindre la communauté</span>
+            <span>→</span>
+          </a>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-2">
+      <a href="#hero" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Accueil</a>
+      <a href="#pourquoi" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Pourquoi</a>
+      <a href="#piliers" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Piliers</a>
+      <a href="#approche" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Approche</a>
+      <a href="#ressources" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Ressources</a>
+      <a href="#communaute" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded">Communauté</a>
+      <a href="#communaute" class="block mt-2 text-center py-2.5 bg-teal-600 text-white font-semibold text-sm rounded-lg">Rejoindre la communauté</a>
     </div>
   </header>
 
-  <main>
+  <main class="flex-grow">
+    
     <!-- ==========================================
          1. HERO SECTION
          ========================================== -->
-    <section id="hero" class="hero-section">
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-kicker">Open Data · IA · Compétences · Société Civile</div>
-          <h1 class="hero-title font-display">
-            Données<span>.</span> IA<span>.</span> Compétences<span>.</span> Impact<span>.</span>
-          </h1>
-          <p class="hero-desc">
-            Renforcer les capacités des organisations de la société civile pour mieux comprendre, utiliser et gouverner les données et l'intelligence artificielle.
-          </p>
-          <div class="hero-cta">
-            <a href="#pourquoi" class="btn-primary" style="background-color: #2EC4B6; color: #020617; font-size: 1rem; padding: 0.85rem 1.75rem;">
-              Découvrir le projet ↓
-            </a>
-            <a href="#communaute" class="btn-secondary" style="font-size: 1rem; padding: 0.85rem 1.75rem;">
-              Rejoindre la communauté →
-            </a>
-          </div>
-        </div>
+    <section id="hero" class="relative overflow-hidden bg-slate-950 text-white py-16 sm:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7">
+            <div class="flex items-center gap-2 text-xs sm:text-sm font-medium text-teal-400 mb-4">
+              <span>Open Data</span>
+              <span>·</span>
+              <span>Intelligence Artificielle</span>
+              <span>·</span>
+              <span>Compétences</span>
+              <span>·</span>
+              <span>Société Civile</span>
+            </div>
 
-        <div>
-          <div class="hero-visual">
-            <img src="./assets/images/hero-data-africa.jpg" alt="Données, IA et société civile en Afrique" width="600" height="400">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-white leading-tight mb-6">
+              Données<span class="text-teal-400">.</span> IA<span class="text-teal-400">.</span> Compétences<span class="text-teal-400">.</span> Impact<span class="text-teal-400">.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mb-8">
+              Renforcer les capacités des organisations de la société civile pour mieux comprendre, utiliser et gouverner les données et l'intelligence artificielle.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10">
+              <a href="#pourquoi" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl text-slate-950 bg-teal-400 hover:bg-teal-300 transition-colors shadow-lg shadow-teal-500/10">
+                <span>Découvrir le projet</span>
+                <span>↓</span>
+              </a>
+              <a href="#communaute" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-xl text-white bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-colors">
+                <span>Rejoindre la communauté</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <!-- Key metrics bar -->
+            <div class="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4">
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white">100%</div>
+                <div class="text-xs text-slate-400 mt-0.5">Contenus francophones</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white">15+</div>
+                <div class="text-xs text-slate-400 mt-0.5">Pays ciblés en Afrique</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-bold font-display text-white">Libre</div>
+                <div class="text-xs text-slate-400 mt-0.5">Ressources en libre accès</div>
+              </div>
+            </div>
           </div>
+
+          <!-- Hero Visual: Graphic SVG + Safe fallback -->
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl relative">
+              <div class="relative aspect-[4/3] w-full bg-gradient-to-br from-slate-900 via-slate-950 to-teal-950 flex flex-col items-center justify-center p-8 text-center">
+                <!-- Abstract vector composition (data nodes + Africa network) -->
+                <svg viewBox="0 0 200 160" class="w-full h-auto max-h-48 text-teal-400 mb-4" fill="none">
+                  <!-- Connection network lines -->
+                  <path d="M 30 110 L 80 50 L 140 70 L 170 30 M 80 50 L 110 120 L 140 70 M 30 110 L 110 120" stroke="#2EC4B6" stroke-width="2" stroke-dasharray="3 3" opacity="0.6" />
+                  <!-- African constellation pulse -->
+                  <circle cx="80" cy="50" r="10" fill="#0B2533" stroke="#2EC4B6" stroke-width="3" />
+                  <circle cx="140" cy="70" r="8" fill="#0B2533" stroke="#38A3A5" stroke-width="2.5" />
+                  <circle cx="110" cy="120" r="12" fill="#0B2533" stroke="#52B788" stroke-width="3.5" />
+                  <circle cx="30" cy="110" r="7" fill="#0B2533" stroke="#2EC4B6" stroke-width="2" />
+                  <circle cx="170" cy="30" r="6" fill="#0B2533" stroke="#52B788" stroke-width="2" />
+                  <!-- Central glowing core -->
+                  <circle cx="110" cy="120" r="4" fill="#2EC4B6" />
+                  <circle cx="80" cy="50" r="3.5" fill="#FFFFFF" />
+                </svg>
+                <div class="text-xs font-semibold text-teal-300 uppercase tracking-wider mb-1">Écosystème Oudiamora</div>
+                <div class="text-sm font-bold text-white">Données souveraines &amp; Action citoyenne</div>
+                <div class="text-[11px] text-slate-400 mt-1 max-w-xs">Gouvernance éthique, valorisation locale et inclusion des communautés d'Afrique francophone.</div>
+              </div>
+              <div class="p-4 bg-slate-950/80 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span class="text-teal-400 font-semibold">Société Civile 4.0</span>
+                <span>Dakar · Abidjan · Cotonou · Bamako</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -79,413 +214,755 @@
     <!-- ==========================================
          2. POURQUOI CE PROJET ?
          ========================================== -->
-    <section id="pourquoi" class="section">
-      <div class="container">
-        <div class="section-kicker">01. Contexte</div>
-        <h2 class="section-title font-display">Les données et l'IA transforment déjà notre monde.</h2>
-        <p class="section-desc">
-          Les données ouvertes et l'IA transforment le travail, les politiques publiques, les organisations, l'accès à l'information et la participation citoyenne. Mais les OSC locales disposent encore de capacités limitées pour exploiter ces nouvelles opportunités. Le projet veut contribuer à réduire cette fracture.
-        </p>
+    <section id="pourquoi" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">01. Contexte &amp; Urgence</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+            Les données et l'IA transforment déjà notre monde.
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            Les données ouvertes et l'intelligence artificielle redéfinissent en profondeur la société, l'économie et la démocratie.
+          </p>
+        </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>Le travail &amp; les métiers</h3>
-            <p>Automatisation des tâches d'analyse et valorisation des profils hybrides orientés données dans les associations.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Le travail</h3>
+            <p class="text-sm text-slate-600">Automatisation de la veille, analyse documentaire rapide et émergence de profils orientés données dans les équipes.</p>
           </div>
-          <div class="card">
-            <h3>Les politiques publiques</h3>
-            <p>Décisions étayées par les indicateurs chiffrés et suivi accru des budgets alloués aux services publics de base.</p>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Les politiques publiques</h3>
+            <p class="text-sm text-slate-600">Décisions étayées par les statistiques et suivi citoyen accru des budgets alloués aux services de santé, d'éducation et d'eau.</p>
           </div>
-          <div class="card">
-            <h3>L'accès à l'information</h3>
-            <p>Transparence par les portails ouverts et recul des asymétries d'information pour les citoyens.</p>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Les organisations</h3>
+            <p class="text-sm text-slate-600">Modernisation des processus internes, fiabilisation des rapports d'activités et redevabilité renforcée envers les bénéficiaires.</p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2">L'accès à l'information</h3>
+            <p class="text-sm text-slate-600">Transparence par les portails ouverts, croisement de statistiques publiques et réduction des asymétries de savoir.</p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-2">La participation citoyenne</h3>
+            <p class="text-sm text-slate-600">Plaidoyer argumenté par des preuves statistiques fiables et dialogue constructif avec les décideurs territoriaux.</p>
+          </div>
+
+          <div class="p-6 rounded-xl border border-teal-200 bg-teal-50/60 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold text-teal-800 uppercase tracking-wider mb-2">Le défi majeur</div>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Le pouvoir de la preuve</h3>
+              <p class="text-sm text-slate-700">Sans maîtrise des données, les organisations de terrain risquent d'être exclues des choix technologiques cruciaux.</p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-teal-200 text-xs font-semibold text-teal-900">
+              Réduire la fracture capacitaire →
+            </div>
           </div>
         </div>
+
+        <!-- The project core goal callout -->
+        <div class="rounded-2xl bg-slate-900 text-white p-8 sm:p-10 border border-slate-800">
+          <div class="max-w-3xl">
+            <div class="text-xs font-semibold text-teal-400 uppercase tracking-widest mb-3">Notre engagement</div>
+            <h3 class="text-2xl sm:text-3xl font-bold font-display leading-snug mb-3">
+              Mais les OSC locales disposent encore de capacités limitées pour exploiter ces nouvelles opportunités.
+            </h3>
+            <p class="text-slate-300 text-base leading-relaxed">
+              Le projet <strong>Oudiamora.net</strong> veut contribuer activement à <strong>réduire cette fracture</strong> en offrant des méthodes pratiques, des formations en français et une communauté d'entraide pour que les organisations deviennent actrices à part entière de la transition numérique.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          3. NOS 4 PILIERS
          ========================================== -->
-    <section id="piliers" class="section section-alt">
-      <div class="container">
-        <div class="section-kicker">02. Structure</div>
-        <h2 class="section-title font-display">Nos 4 Piliers</h2>
-        <p class="section-desc">
-          Une articulation cohérente pour accompagner les organisations de terrain vers l'autonomie stratégique.
-        </p>
+    <section id="piliers" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">02. Piliers d'Action</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+            Nos 4 Piliers
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600">
+            Une architecture complète pour développer des capacités durables au service du plaidoyer citoyen.
+          </p>
+        </div>
 
-        <div class="grid-2">
-          <div class="card">
-            <h3 style="color: #0F3244;">OPEN DATA</h3>
-            <p style="font-weight: 600; color: #209E92; margin-bottom: 0.5rem;">Données ouvertes &amp; Biens communs</p>
-            <p>Comprendre, rechercher, exploiter et valoriser les données ouvertes dans le respect des standards et des réalités africaines.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          
+          <!-- Pilier 1 -->
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-lg bg-teal-50 text-teal-600 font-bold flex items-center justify-center text-sm">01</span>
+                <span class="text-xs font-semibold uppercase text-teal-700">Données Ouvertes</span>
+              </div>
+              <h3 class="text-2xl font-bold font-display text-slate-900 mb-2">OPEN DATA</h3>
+              <p class="text-base text-slate-700 font-medium mb-4">
+                Comprendre, rechercher, exploiter et valoriser les données ouvertes.
+              </p>
+              <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                <li>• Identifier et interroger les portails nationaux et régionaux de données.</li>
+                <li>• Nettoyage, structuration et contrôle de cohérence des fichiers tabulaires.</li>
+                <li>• Plaidoyer factuel étayé par des indicateurs officiels et communautaires.</li>
+              </ul>
+            </div>
+            <a href="#ressources" class="text-xs font-semibold text-teal-700 hover:text-teal-900">Voir les guides Open Data →</a>
           </div>
 
-          <div class="card">
-            <h3 style="color: #0F3244;">INTELLIGENCE ARTIFICIELLE</h3>
-            <p style="font-weight: 600; color: #4F46E5; margin-bottom: 0.5rem;">IA &amp; IA générative pour l'action citoyenne</p>
-            <p>Découvrir les usages concrets de l'IA et de l'IA générative pour les OSC : synthèse documentaire, plaidoyer et veille.</p>
+          <!-- Pilier 2 -->
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 font-bold flex items-center justify-center text-sm">02</span>
+                <span class="text-xs font-semibold uppercase text-indigo-700">Technologies d'Avenir</span>
+              </div>
+              <h3 class="text-2xl font-bold font-display text-slate-900 mb-2">INTELLIGENCE ARTIFICIELLE</h3>
+              <p class="text-base text-slate-700 font-medium mb-4">
+                Découvrir les usages concrets de l'IA et de l'IA générative pour les OSC.
+              </p>
+              <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                <li>• Rédaction accélérée de dossiers de subvention et synthèses de rapports.</li>
+                <li>• Traduction contextuelle et adaptation des messages pour le public local.</li>
+                <li>• Compréhension critique des limites et détection des biais algorithmiques.</li>
+              </ul>
+            </div>
+            <a href="#ressources" class="text-xs font-semibold text-indigo-700 hover:text-indigo-900">Explorer les prompts IA →</a>
           </div>
 
-          <div class="card">
-            <h3 style="color: #0F3244;">GOUVERNANCE DES DONNÉES</h3>
-            <p style="font-weight: 600; color: #7C3AED; margin-bottom: 0.5rem;">Éthique, protection et responsabilité</p>
-            <p>Comprendre les enjeux de qualité, protection, responsabilité, partage et utilisation des données au regard des lois locales.</p>
+          <!-- Pilier 3 -->
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 font-bold flex items-center justify-center text-sm">03</span>
+                <span class="text-xs font-semibold uppercase text-purple-700">Droit &amp; Éthique</span>
+              </div>
+              <h3 class="text-2xl font-bold font-display text-slate-900 mb-2">GOUVERNANCE DES DONNÉES</h3>
+              <p class="text-base text-slate-700 font-medium mb-4">
+                Comprendre les enjeux de qualité, protection, responsabilité, partage et utilisation des données.
+              </p>
+              <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                <li>• Respect des lois africaines et internationales sur les données personnelles.</li>
+                <li>• Sécurisation des listes de bénéficiaires vulnérables et lanceurs d'alerte.</li>
+                <li>• Protocoles éthiques de partage d'informations inter-organisations.</li>
+              </ul>
+            </div>
+            <a href="#ressources" class="text-xs font-semibold text-purple-700 hover:text-purple-900">Consulter les cadres éthiques →</a>
           </div>
 
-          <div class="card">
-            <h3 style="color: #0F3244;">EMPLOYABILITÉ</h3>
-            <p style="font-weight: 600; color: #D97706; margin-bottom: 0.5rem;">Compétences numériques pratiques</p>
-            <p>Développer des compétences pratiques en Data, IA et transformation numérique pour pérenniser l'impact des équipes.</p>
+          <!-- Pilier 4 -->
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 font-bold flex items-center justify-center text-sm">04</span>
+                <span class="text-xs font-semibold uppercase text-amber-700">Avenir Professionnel</span>
+              </div>
+              <h3 class="text-2xl font-bold font-display text-slate-900 mb-2">EMPLOYABILITÉ</h3>
+              <p class="text-base text-slate-700 font-medium mb-4">
+                Développer des compétences pratiques en Data, IA et transformation numérique.
+              </p>
+              <ul class="space-y-2 text-sm text-slate-600 mb-6">
+                <li>• Maîtrise des logiciels de visualisation gratuits et tableurs collaboratifs.</li>
+                <li>• Valorisation de profils hybrides jeunes pour répondre aux besoins du secteur.</li>
+                <li>• Réseau de mentorat et d'opportunités au sein de l'écosystème civil.</li>
+              </ul>
+            </div>
+            <a href="#ressources" class="text-xs font-semibold text-amber-700 hover:text-amber-900">Découvrir les parcours →</a>
+          </div>
+
+        </div>
+
+        <div class="p-6 rounded-xl bg-white border border-slate-200 text-center max-w-3xl mx-auto">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Le positionnement</p>
+          <div class="text-lg sm:text-xl font-bold font-display text-slate-900">
+            Open Data + IA + Compétences + Société civile
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          4. NOTRE APPROCHE
          ========================================== -->
-    <section id="approche" class="section">
-      <div class="container">
-        <div class="section-kicker">03. Méthode</div>
-        <h2 class="section-title font-display">Notre Approche</h2>
-        <p class="section-desc">
-          Une démarche orientée vers l'action et l'impact mesurable.
-        </p>
-
-        <div class="pipeline-grid" style="margin-bottom: 2.5rem;">
-          <div class="step-card">
-            <span class="step-number">01. ÉTAPE</span>
-            <h3 class="font-display">APPRENDRE</h3>
-            <p>Acquérir les fondamentaux sans jargon technique intimidant.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-number">02. ÉTAPE</span>
-            <h3 class="font-display">EXPÉRIMENTER</h3>
-            <p>Pratiquer sur des cas d'usage réels avec des outils accessibles.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-number">03. ÉTAPE</span>
-            <h3 class="font-display">APPLIQUER</h3>
-            <p>Intégrer les méthodes dans vos propres projets et rapports associatifs.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-number">04. ÉTAPE</span>
-            <h3 class="font-display">PARTAGER</h3>
-            <p>Diffuser auprès de vos pairs et enrichir les biens communs numériques.</p>
-          </div>
+    <section id="approche" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">03. Méthodologie</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+            Notre Approche
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600">
+            Une trajectoire pédagogique continue pensée pour convertir les apprentissages en actions opérationnelles immédiates.
+          </p>
         </div>
 
-        <div style="background-color: #0F172A; color: #FFFFFF; padding: 2rem; border-radius: 1rem; text-align: center;">
-          <blockquote style="font-size: 1.25rem; font-weight: 600; font-family: var(--font-display);">
+        <!-- Horizontal Steps Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <span class="text-xs font-bold font-display text-teal-700 block mb-2">01. ÉTAPE</span>
+            <h3 class="text-xl font-bold font-display text-slate-900 mb-2">APPRENDRE</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Acquisition des fondamentaux en français : démystifier la donnée, l'IA et leurs règles juridiques sans jargon intimidant.
+            </p>
+            <div class="text-xs font-semibold text-slate-500 pt-3 border-t border-slate-200">
+              Livrable : Kits d'auto-formation
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <span class="text-xs font-bold font-display text-teal-700 block mb-2">02. ÉTAPE</span>
+            <h3 class="text-xl font-bold font-display text-slate-900 mb-2">EXPÉRIMENTER</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Ateliers pratiques sur des cas concrets de terrain : manipuler des jeux de données réels et tester des requêtes ciblées.
+            </p>
+            <div class="text-xs font-semibold text-slate-500 pt-3 border-t border-slate-200">
+              Livrable : Exercices guidés
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <span class="text-xs font-bold font-display text-teal-700 block mb-2">03. ÉTAPE</span>
+            <h3 class="text-xl font-bold font-display text-slate-900 mb-2">APPLIQUER</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Intégration directe dans les activités associatives : rapports d'enquêtes, campagnes de plaidoyer et tableaux de bord.
+            </p>
+            <div class="text-xs font-semibold text-slate-500 pt-3 border-t border-slate-200">
+              Livrable : Outils déployés
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl border border-slate-200 bg-slate-50/50">
+            <span class="text-xs font-bold font-display text-teal-700 block mb-2">04. ÉTAPE</span>
+            <h3 class="text-xl font-bold font-display text-slate-900 mb-2">PARTAGER</h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+              Transmission aux pairs et rayonnement : publication de guides ouverts et alimentation des débats publics nationaux.
+            </p>
+            <div class="text-xs font-semibold text-slate-500 pt-3 border-t border-slate-200">
+              Livrable : Ressources libres
+            </div>
+          </div>
+
+        </div>
+
+        <div class="p-8 rounded-2xl bg-slate-900 text-white text-center">
+          <blockquote class="text-lg sm:text-xl font-semibold font-display max-w-3xl mx-auto leading-relaxed">
             « Notre objectif n'est pas seulement de transmettre des connaissances, mais de permettre aux participants de les transformer en compétences et en actions concrètes. »
           </blockquote>
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          5. POUR LES OSC LOCALES
          ========================================== -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-kicker">04. Légitimité</div>
-        <h2 class="section-title font-display">La transformation numérique doit aussi partir du terrain.</h2>
+    <section class="py-20 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div style="margin-bottom: 2.5rem; max-width: 50rem;">
-          <blockquote style="font-style: italic; font-size: 1.125rem; color: #334155; border-left: 3px solid #2EC4B6; padding-left: 1rem;">
+        <div class="max-w-3xl mb-12">
+          <div class="text-xs font-semibold text-teal-400 uppercase tracking-widest mb-2">04. Ancrage &amp; Terrain</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white leading-tight">
+            La transformation numérique doit aussi partir du terrain.
+          </h2>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-slate-800/80 border border-slate-700 max-w-4xl mb-14">
+          <blockquote class="text-lg sm:text-xl font-medium text-slate-200 italic leading-relaxed">
             « Les OSC locales ne doivent pas seulement être utilisatrices des technologies. Elles doivent pouvoir comprendre les données, maîtriser les outils et participer aux décisions qui façonnent leur environnement numérique. »
           </blockquote>
         </div>
 
-        <div class="grid-3" style="margin-bottom: 2rem;">
-          <div class="card">
-            <h4>Approche locale</h4>
-            <p>Ancrée dans les réalités associatives des pays francophones.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div class="p-5 rounded-xl bg-slate-800 border border-slate-700">
+            <h3 class="text-base font-bold font-display text-white mb-2">Approche locale</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Pensée pour les réalités des villes et territoires d'Afrique sans importer des modèles inadaptés.</p>
           </div>
-          <div class="card">
-            <h4>Contenus francophones</h4>
-            <p>Ressources et glossaires de pointe entièrement en français.</p>
+
+          <div class="p-5 rounded-xl bg-slate-800 border border-slate-700">
+            <h3 class="text-base font-bold font-display text-white mb-2">Contenus francophones</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">100% en français pour éliminer la barrière de la langue sur les sujets de pointe.</p>
           </div>
-          <div class="card">
-            <h4>Cas d'usage africains</h4>
-            <p>Exemples vérifiés : santé communautaire, budgets communaux et veille.</p>
+
+          <div class="p-5 rounded-xl bg-slate-800 border border-slate-700">
+            <h3 class="text-base font-bold font-display text-white mb-2">Cas d'usage africains</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Exemples documentés : veille budgétaire, santé communautaire, climat et foncier.</p>
           </div>
-          <div class="card">
-            <h4>Apprentissage pratique</h4>
-            <p>Exercices concrets réalisables avec des outils gratuits ou abordables.</p>
+
+          <div class="p-5 rounded-xl bg-slate-800 border border-slate-700">
+            <h3 class="text-base font-bold font-display text-white mb-2">Apprentissage pratique</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Focalisé sur l'exercice concret et les outils gratuits ou très accessibles.</p>
           </div>
-          <div class="card">
-            <h4>Communauté d'entraide</h4>
-            <p>Solidarité entre pairs et échanges continus sans barrière d'accès.</p>
+
+          <div class="p-5 rounded-xl bg-slate-800 border border-slate-700">
+            <h3 class="text-base font-bold font-display text-white mb-2">Communauté d'entraide</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">Un réseau solidaire de pairs et praticiens bénévoles pour ne jamais rester isolé.</p>
           </div>
         </div>
 
-        <div style="border-radius: 1rem; overflow: hidden; border: 1px solid #CBD5E1;">
-          <img src="./assets/images/community-civil-society.jpg" alt="Société civile africaine collaborant" style="width: 100%; height: auto;">
-        </div>
       </div>
     </section>
 
     <!-- ==========================================
          6. THÉMATIQUES
          ========================================== -->
-    <section class="section">
-      <div class="container">
-        <div class="section-kicker">05. Domaines</div>
-        <h2 class="section-title font-display">Thématiques Clés</h2>
-        <p class="section-desc">Les sujets fondamentaux abordés dans nos programmes et ateliers.</p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Open Data</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Data Literacy</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">IA générative</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Gouvernance des données</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Protection des données</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Éthique de l'IA</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Data &amp; politiques publiques</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">OSINT</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Automatisation</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Visualisation des données</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Transformation numérique</span>
-          <span style="background: #F1F5F9; border: 1px solid #CBD5E1; padding: 0.5rem 1rem; border-radius: 0.5rem; font-weight: 600; font-size: 0.875rem;">Compétences numériques</span>
+    <section class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12">
+          <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">05. Champs d'Expertise</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+            Thématiques
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600">
+            Un large éventail de sujets au cœur des transformations numériques actuelles.
+          </p>
         </div>
+
+        <div class="flex flex-wrap gap-2.5">
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Open Data</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Data Literacy</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">IA générative</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Gouvernance des données</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Protection des données</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Éthique de l'IA</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Data &amp; politiques publiques</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">OSINT</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Automatisation</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Visualisation des données</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Transformation numérique</span>
+          <span class="px-4 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-sm font-semibold text-slate-800">Compétences numériques</span>
+        </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          7. RESSOURCES
          ========================================== -->
-    <section id="ressources" class="section section-alt">
-      <div class="container">
-        <div class="section-kicker">06. Partage</div>
-        <h2 class="section-title font-display">Ressources</h2>
-        <p class="section-desc">Consultez et téléchargez des kits pratiques en libre accès.</p>
-
-        <div class="grid-3">
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #209E92;">GUIDE PRATIQUE</span>
-            <h3>Exploiter l'Open Data pour son plaidoyer</h3>
-            <p>Méthodologie pour structurer une campagne avec des indicateurs chiffrés vérifiés.</p>
+    <section id="ressources" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div class="max-w-2xl">
+            <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">06. Documentation &amp; Outils</div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+              Ressources
+            </h2>
+            <p class="mt-4 text-base text-slate-600">
+              Des fiches, tutoriels et jeux de données concrets pour passer à l'action.
+            </p>
           </div>
-
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #4F46E5;">TUTORIEL</span>
-            <h3>Prompts IA pour notes conceptuelles</h3>
-            <p>Modèles de requêtes pour structurer un cadre logique de projet associatif.</p>
-          </div>
-
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #2563EB;">JEUX DE DONNÉES</span>
-            <h3>Annuaire des portails d'Afrique de l'Ouest</h3>
-            <p>Plus de 45 répertoires statistiques nationaux et sectoriels référencés.</p>
-          </div>
-
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #D97706;">OUTILS NUMÉRIQUES</span>
-            <h3>10 logiciels no-code gratuits</h3>
-            <p>Outils de visualisation et de cartographie sans abonnement obligatoire.</p>
-          </div>
-
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #059669;">ÉTUDES DE CAS</span>
-            <h3>Cartographie citoyenne de la santé</h3>
-            <p>Comment une association a documenté les déserts de santé en milieu périurbain.</p>
-          </div>
-
-          <div class="card">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #7C3AED;">WEBINAIRES</span>
-            <h3>Protection des données bénéficiaires</h3>
-            <p>Replay vidéo et support de cours sur la sécurité numérique fondamentale.</p>
+          <div class="text-xs font-medium text-slate-500">
+            Libre accès · Architecture extensible
           </div>
         </div>
+
+        <!-- Filter tabs -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <button data-filter="all" class="filter-btn active px-3.5 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-semibold">Toutes</button>
+          <button data-filter="guides" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Guides pratiques</button>
+          <button data-filter="tutoriels" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Tutoriels</button>
+          <button data-filter="datasets" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Jeux de données</button>
+          <button data-filter="outils" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Outils numériques</button>
+          <button data-filter="etudes" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Études de cas</button>
+          <button data-filter="webinaires" class="filter-btn px-3.5 py-1.5 rounded-lg bg-slate-200 text-slate-700 text-xs font-semibold">Webinaires</button>
+        </div>
+
+        <!-- 6 Resource Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="guides">
+            <div>
+              <span class="text-xs font-bold text-teal-700 uppercase block mb-1">Guides pratiques</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Exploiter l'Open Data pour son plaidoyer</h3>
+              <p class="text-xs text-slate-600 mb-4">Méthodologie pour extraire des indicateurs chiffrés vérifiés et structurer une campagne de plaidoyer citoyen.</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Guide PDF disponible dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-teal-50 text-slate-800 hover:text-teal-700 text-xs font-semibold rounded border border-slate-200">Consulter le guide</button>
+          </div>
+
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="tutoriels">
+            <div>
+              <span class="text-xs font-bold text-indigo-700 uppercase block mb-1">Tutoriels</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Prompts IA pour notes conceptuelles</h3>
+              <p class="text-xs text-slate-600 mb-4">Bibliothèque de prompts francophones pour formaliser un cadre logique et accélérer la rédaction de projets.</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Bibliothèque de prompts disponible dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-indigo-50 text-slate-800 hover:text-indigo-700 text-xs font-semibold rounded border border-slate-200">Voir les prompts</button>
+          </div>
+
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="datasets">
+            <div>
+              <span class="text-xs font-bold text-blue-700 uppercase block mb-1">Jeux de données</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Annuaire des portails d'Afrique de l'Ouest</h3>
+              <p class="text-xs text-slate-600 mb-4">Répertoire de plus de 45 sources officielles ouvertes (instituts de statistiques, ministères et agences régionales).</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Annuaire consultable dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-blue-50 text-slate-800 hover:text-blue-700 text-xs font-semibold rounded border border-slate-200">Explorer le répertoire</button>
+          </div>
+
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="outils">
+            <div>
+              <span class="text-xs font-bold text-amber-700 uppercase block mb-1">Outils numériques</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">10 logiciels no-code gratuits</h3>
+              <p class="text-xs text-slate-600 mb-4">Sélection commentée de solutions gratuites pour créer des graphiques et cartes percutantes sans coder.</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Fiche outils disponible dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-amber-50 text-slate-800 hover:text-amber-700 text-xs font-semibold rounded border border-slate-200">Découvrir la sélection</button>
+          </div>
+
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="etudes">
+            <div>
+              <span class="text-xs font-bold text-emerald-700 uppercase block mb-1">Études de cas</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Cartographie citoyenne de la santé</h3>
+              <p class="text-xs text-slate-600 mb-4">Retour d'expérience documenté sur la cartographie participative des centres de soins en banlieue de Dakar.</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Étude de cas complète disponible dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-emerald-50 text-slate-800 hover:text-emerald-700 text-xs font-semibold rounded border border-slate-200">Lire l'étude de cas</button>
+          </div>
+
+          <div class="resource-card p-6 bg-white rounded-xl border border-slate-200 flex flex-col justify-between" data-category="webinaires">
+            <div>
+              <span class="text-xs font-bold text-purple-700 uppercase block mb-1">Webinaires</span>
+              <h3 class="text-lg font-bold font-display text-slate-900 mb-2">Protection des données bénéficiaires</h3>
+              <p class="text-xs text-slate-600 mb-4">Replay vidéo et fiches réflexes sur la conformité juridique et la cybersécurité des associations locales.</p>
+            </div>
+            <button onclick="alert('Ressource en libre accès : Replay disponible dans la communauté.')" class="w-full py-2 bg-slate-50 hover:bg-purple-50 text-slate-800 hover:text-purple-700 text-xs font-semibold rounded border border-slate-200">Regarder le replay</button>
+          </div>
+
+        </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          8. COMMUNAUTÉ
          ========================================== -->
-    <section id="communaute" class="section">
-      <div class="container" style="max-w: 48rem;">
-        <div class="section-kicker">07. Réseau</div>
-        <h2 class="section-title font-display">Construisons une communauté qui apprend ensemble.</h2>
-        <p class="section-desc" style="font-style: italic;">
-          « Parce que la transformation numérique ne se décrète pas : elle se construit avec celles et ceux qui agissent sur le terrain. »
-        </p>
+    <section id="communaute" class="py-20 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <div class="lg:col-span-5">
+            <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">07. Réseau Citoyen</div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight mb-4">
+              Construisons une communauté qui apprend ensemble.
+            </h2>
 
-        <div class="form-box">
-          <form id="community-form">
-            <div class="form-group">
-              <label class="form-label" for="c-nom">Nom complet *</label>
-              <input type="text" id="c-nom" name="nom" required class="form-input" placeholder="Ex: Fatou Ndiaye">
+            <blockquote class="text-base text-slate-700 italic border-l-2 border-teal-500 pl-4 mb-6">
+              « Parce que la transformation numérique ne se décrète pas : elle se construit avec celles et ceux qui agissent sur le terrain. »
+            </blockquote>
+
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              En rejoignant Oudiamora.net, vous participez aux sessions mensuelles, aux partages de jeux de données fiables et aux ateliers pratiques sur l'IA et l'Open Data en Afrique francophone.
+            </p>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
+              <span class="font-semibold text-slate-800 block mb-1">Note pour l'administrateur du site :</span>
+              Ce formulaire fonctionne en mode autonome sans backend. Vous pouvez le lier facilement à Formspree, Google Forms ou un Webhook en renseignant la variable <code class="bg-white px-1 border rounded">formEndpoint</code> dans le script.
             </div>
-
-            <div class="form-group">
-              <label class="form-label" for="c-orga">Organisation *</label>
-              <input type="text" id="c-orga" name="organisation" required class="form-input" placeholder="Ex: Initiative Citoyenne Sahel">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="c-email">Email professionnel *</label>
-              <input type="email" id="c-email" name="email" required class="form-input" placeholder="contact@organisation.org">
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="c-pays">Pays *</label>
-              <select id="c-pays" name="pays" class="form-select">
-                <option value="Sénégal">Sénégal</option>
-                <option value="Côte d'Ivoire">Côte d'Ivoire</option>
-                <option value="Bénin">Bénin</option>
-                <option value="Togo">Togo</option>
-                <option value="Burkina Faso">Burkina Faso</option>
-                <option value="Mali">Mali</option>
-                <option value="Guinée">Guinée</option>
-                <option value="Niger">Niger</option>
-                <option value="Cameroun">Cameroun</option>
-                <option value="RDC">République Démocratique du Congo (RDC)</option>
-                <option value="Autre">Autre pays</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="c-domaine">Domaine d'activité</label>
-              <select id="c-domaine" name="domaine" class="form-select">
-                <option value="Gouvernance">Gouvernance, Démocratie &amp; Transparence</option>
-                <option value="Santé">Santé communautaire</option>
-                <option value="Éducation">Éducation &amp; Jeunesse</option>
-                <option value="Environnement">Environnement, Climat &amp; Agriculture</option>
-                <option value="Droits">Droits humains &amp; Genre</option>
-                <option value="Autre">Autre domaine</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label" for="c-interet">Centre d'intérêt prioritaire</label>
-              <select id="c-interet" name="interet" class="form-select">
-                <option value="Open Data">Open Data &amp; Analyse de jeux de données</option>
-                <option value="IA générative">Intelligence Artificielle générative</option>
-                <option value="Gouvernance">Gouvernance et protection des données</option>
-                <option value="Visualisation">Visualisation de données &amp; Cartographie</option>
-              </select>
-            </div>
-
-            <button type="submit" class="btn-primary" style="width: 100%; padding: 0.85rem; font-size: 1rem;">
-              Rejoindre la communauté
-            </button>
-          </form>
-
-          <div id="community-success" style="display: none; text-align: center; padding: 2rem;">
-            <h3 style="color: #209E92; margin-bottom: 0.5rem;" class="font-display">Bienvenue dans la communauté !</h3>
-            <p>Votre inscription a bien été enregistrée. Nous vous contacterons prochainement pour les prochains ateliers.</p>
           </div>
+
+          <div class="lg:col-span-7">
+            <div class="p-8 rounded-2xl bg-slate-50 border border-slate-200">
+              
+              <div id="form-success" class="hidden text-center py-8">
+                <div class="w-14 h-14 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl font-bold">✓</div>
+                <h3 class="text-xl font-bold font-display text-slate-900 mb-2">Bienvenue dans la communauté !</h3>
+                <p class="text-sm text-slate-600 max-w-md mx-auto">Votre inscription a été enregistrée avec succès. Vous recevrez prochainement nos prochains modules et invitations.</p>
+              </div>
+
+              <form id="community-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="nom">Nom complet *</label>
+                    <input type="text" id="nom" name="nom" required class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Ex: Aminata Traoré">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="organisation">Organisation / Association *</label>
+                    <input type="text" id="organisation" name="organisation" required class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="Ex: Action Citoyenne">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="email">Email professionnel *</label>
+                    <input type="email" id="email" name="email" required class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="contact@organisation.org">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1" for="pays">Pays *</label>
+                    <select id="pays" name="pays" class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                      <option value="Sénégal">Sénégal</option>
+                      <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                      <option value="Bénin">Bénin</option>
+                      <option value="Togo">Togo</option>
+                      <option value="Burkina Faso">Burkina Faso</option>
+                      <option value="Mali">Mali</option>
+                      <option value="Guinée">Guinée</option>
+                      <option value="Niger">Niger</option>
+                      <option value="Cameroun">Cameroun</option>
+                      <option value="RDC">République Démocratique du Congo (RDC)</option>
+                      <option value="Autre">Autre pays</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="domaine">Domaine d'activité *</label>
+                  <select id="domaine" name="domaine" class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="Gouvernance">Gouvernance, Démocratie &amp; Transparence</option>
+                    <option value="Santé">Santé communautaire</option>
+                    <option value="Éducation">Éducation &amp; Alphabétisation</option>
+                    <option value="Environnement">Environnement, Climat &amp; Agriculture</option>
+                    <option value="Droits">Droits humains &amp; Genre</option>
+                    <option value="Autre">Autre domaine</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1" for="interet">Centre d'intérêt prioritaire *</label>
+                  <select id="interet" name="interet" class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="Open Data">Open Data &amp; Analyse de jeux de données</option>
+                    <option value="IA générative">Intelligence Artificielle générative</option>
+                    <option value="Gouvernance">Gouvernance et protection des données</option>
+                    <option value="Visualisation">Visualisation de données &amp; Infographies</option>
+                  </select>
+                </div>
+
+                <button type="submit" class="w-full py-3 px-6 rounded-xl text-sm font-semibold text-white bg-teal-600 hover:bg-teal-500 transition-colors shadow-md">
+                  Rejoindre la communauté
+                </button>
+              </form>
+
+            </div>
+          </div>
+
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          9. AMBITION
          ========================================== -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-kicker">08. Impact</div>
-        <h2 class="section-title font-display">Une société civile capable d'agir dans l'économie des données et de l'IA.</h2>
-        <p class="section-desc">Nos trois engagements fondamentaux pour l'avenir des organisations citoyennes.</p>
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-14">
+          <div class="text-xs font-semibold text-teal-600 uppercase tracking-widest mb-2">08. Impact Durable</div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-slate-900 leading-tight">
+            Une société civile capable d'agir dans l'économie des données et de l'IA.
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-600">
+            Trois transformations fondamentales pour l'avenir démocratique et numérique de nos pays.
+          </p>
+        </div>
 
-        <div class="grid-3">
-          <div class="card">
-            <h3>OSC PLUS AUTONOMES</h3>
-            <p style="font-weight: 600; color: #209E92; margin-bottom: 0.5rem;">Mieux utiliser les données et les technologies.</p>
-            <p>Autonomie dans la collecte, le traitement et la valorisation sans dépendre continuellement de financements d'audits externes.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-1">OSC PLUS AUTONOMES</h3>
+            <p class="text-xs font-semibold text-teal-700 uppercase tracking-wider mb-3">Mieux utiliser les données et les technologies</p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Donner aux associations locales la capacité d'analyser et valoriser leurs propres données sans dépendre d'expertises externes inaccessibles.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>PROFESSIONNELS MIEUX PRÉPARÉS</h3>
-            <p style="font-weight: 600; color: #4F46E5; margin-bottom: 0.5rem;">Développer des compétences adaptées aux nouveaux métiers.</p>
-            <p>Compétences hybrides en data literacy, gestion de projets numériques et utilisation critique de l'IA générative.</p>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-1">PROFESSIONNELS MIEUX PRÉPARÉS</h3>
+            <p class="text-xs font-semibold text-indigo-700 uppercase tracking-wider mb-3">Développer des compétences adaptées aux nouveaux métiers</p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Former les jeunes professionnels et militants associatifs aux compétences numériques hybrides indispensables pour l'employabilité de demain.
+            </p>
           </div>
 
-          <div class="card">
-            <h3>CITOYENS MIEUX INFORMÉS</h3>
-            <p style="font-weight: 600; color: #7C3AED; margin-bottom: 0.5rem;">Comprendre les enjeux liés aux données et à l'intelligence artificielle.</p>
-            <p>Participation active aux débats de gouvernance, compréhension des algorithmes et défense de l'intérêt général.</p>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm">
+            <h3 class="text-lg font-bold font-display text-slate-900 mb-1">CITOYENS MIEUX INFORMÉS</h3>
+            <p class="text-xs font-semibold text-purple-700 uppercase tracking-wider mb-3">Comprendre les enjeux liés aux données et à l'intelligence artificielle</p>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Permettre aux communautés d'exercer un regard critique sur les algorithmes, de protéger leurs droits numériques et de participer aux débats publics.
+            </p>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          10. CTA FINAL
          ========================================== -->
-    <section class="hero-section" style="text-align: center; padding: 5rem 0;">
-      <div class="container">
-        <h2 class="hero-title font-display" style="font-size: 2.25rem; margin-bottom: 1rem;">
+    <section class="py-20 bg-slate-950 text-white text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display leading-tight mb-4">
           Vous êtes une OSC, un professionnel ou un acteur engagé ?
         </h2>
-        <p class="hero-desc" style="margin: 0 auto 2.5rem; font-size: 1.25rem;">
+        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
           Rejoignez une communauté qui veut rendre les données et l'IA plus accessibles.
         </p>
-        <a href="#communaute" class="btn-primary" style="background-color: #2EC4B6; color: #020617; font-size: 1.125rem; padding: 0.95rem 2rem;">
+        <a href="#communaute" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-xl text-slate-950 bg-teal-400 hover:bg-teal-300 transition-colors shadow-lg shadow-teal-500/20">
           Rejoindre la communauté
         </a>
       </div>
     </section>
+
   </main>
 
   <!-- ==========================================
-       FOOTER
+       FOOTER & RÉSEAUX SOCIAUX
        ========================================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
+  <footer class="bg-slate-900 text-slate-400 text-sm border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
-          <img src="./assets/images/logo-oudiamora.svg" alt="Oudiamora.net" width="160" style="margin-bottom: 1rem; filter: brightness(0) invert(1);">
-          <p style="max-width: 20rem; font-size: 0.8125rem;">
+          <!-- Inline Footer Logo (Vector) -->
+          <svg class="brand-logo-img mb-3" viewBox="0 0 520 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 180px; width: 100%; height: auto;">
+            <g transform="translate(10, 8)">
+              <path d="M 52 14 A 42 42 0 1 0 94 65" fill="none" stroke="#2EC4B6" stroke-width="5" stroke-linecap="round" />
+              <circle cx="52" cy="14" r="7.5" fill="#38A3A5" />
+              <circle cx="15" cy="74" r="7.5" fill="#52B788" />
+              <circle cx="94" cy="65" r="8" fill="#2EC4B6" />
+              <circle cx="55" cy="52" r="21" fill="none" stroke="#FFFFFF" stroke-width="5.5" />
+              <path d="M 41 55 Q 55 70 69 55" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" />
+            </g>
+            <text x="125" y="65" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="44" font-weight="700" fill="#FFFFFF">
+              Oudiamora<tspan fill="#2EC4B6">.</tspan>net
+            </text>
+            <text x="128" y="96" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="20" font-weight="500" fill="#94A3B8">
+              Open Data + IA
+            </text>
+          </svg>
+          <p class="text-xs text-slate-400 leading-relaxed">
             Open Data + IA + Compétences + Société civile en Afrique francophone.
           </p>
         </div>
 
         <div>
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#pourquoi">Pourquoi ce projet ?</a></li>
-            <li><a href="#piliers">Nos 4 piliers</a></li>
-            <li><a href="#approche">Notre approche</a></li>
-            <li><a href="#ressources">Ressources</a></li>
-            <li><a href="#communaute">Communauté</a></li>
+          <h4 class="text-xs font-semibold uppercase text-slate-200 tracking-wider mb-3">Navigation</h4>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="#hero" class="hover:text-teal-400">Accueil</a></li>
+            <li><a href="#pourquoi" class="hover:text-teal-400">Pourquoi ce projet ?</a></li>
+            <li><a href="#piliers" class="hover:text-teal-400">Nos 4 piliers</a></li>
+            <li><a href="#approche" class="hover:text-teal-400">Notre approche</a></li>
+            <li><a href="#ressources" class="hover:text-teal-400">Ressources</a></li>
+            <li><a href="#communaute" class="hover:text-teal-400">Communauté</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Réseaux Sociaux</h4>
-          <ul>
-            <li><a href="https://linkedin.com/company/oudiamora-africa" target="_blank" rel="noopener">LinkedIn</a></li>
-            <li><a href="https://facebook.com/oudiamora.net" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://instagram.com/oudiamora_net" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://x.com/oudiamora_net" target="_blank" rel="noopener">X (Twitter)</a></li>
-            <li><a href="https://tiktok.com/@oudiamora_net" target="_blank" rel="noopener">TikTok</a></li>
+          <h4 class="text-xs font-semibold uppercase text-slate-200 tracking-wider mb-3">Réseaux Sociaux</h4>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="https://linkedin.com/company/oudiamora-africa" target="_blank" rel="noopener" class="hover:text-teal-400">LinkedIn</a></li>
+            <li><a href="https://facebook.com/oudiamora.net" target="_blank" rel="noopener" class="hover:text-teal-400">Facebook</a></li>
+            <li><a href="https://instagram.com/oudiamora_net" target="_blank" rel="noopener" class="hover:text-teal-400">Instagram</a></li>
+            <li><a href="https://x.com/oudiamora_net" target="_blank" rel="noopener" class="hover:text-teal-400">X (Twitter)</a></li>
+            <li><a href="https://tiktok.com/@oudiamora_net" target="_blank" rel="noopener" class="hover:text-teal-400">TikTok</a></li>
           </ul>
         </div>
 
         <div>
-          <h4>Contact &amp; Éthique</h4>
-          <ul>
-            <li>contact@oudiamora.net</li>
-            <li>Protection des données</li>
-            <li>Ressources ouvertes libres</li>
-            <li style="color: #2EC4B6; margin-top: 0.5rem;">Hébergé sur LWS mutualisé</li>
-          </ul>
+          <h4 class="text-xs font-semibold uppercase text-slate-200 tracking-wider mb-3">Contact &amp; Éthique</h4>
+          <p class="text-xs text-slate-400 mb-2">contact@oudiamora.net</p>
+          <p class="text-xs text-slate-400">Protection des données personnelles et respect strict de la vie privée.</p>
+          <p class="text-[11px] text-teal-400 mt-2 font-medium">Hébergement 100% statique LWS</p>
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="pt-6 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p>© 2026 Oudiamora.net · Tous droits réservés.</p>
-        <p>Site statique autonome conçu pour hébergement mutualisé LWS.</p>
+        <p>Prêt pour hébergement mutualisé LWS sans backend.</p>
       </div>
+
     </div>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <!-- Script interactif (Filtres, mobile, formulaire) -->
+  <script>
+    // Configuration du formulaire (remplacez par votre lien Formspree si souhaité)
+    var CONFIG_FORM_ENDPOINT = "";
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu Mobile
+      var menuBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // Filtrage des ressources
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var resourceCards = document.querySelectorAll('.resource-card');
+
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var category = this.getAttribute('data-filter');
+          
+          filterBtns.forEach(function(b) {
+            b.classList.remove('bg-slate-900', 'text-white');
+            b.classList.add('bg-slate-200', 'text-slate-700');
+          });
+          this.classList.remove('bg-slate-200', 'text-slate-700');
+          this.classList.add('bg-slate-900', 'text-white');
+
+          resourceCards.forEach(function(card) {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Soumission formulaire
+      var form = document.getElementById('community-form');
+      var successBox = document.getElementById('form-success');
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          var oldText = btn.textContent;
+          btn.textContent = "Inscription en cours...";
+          btn.disabled = true;
+
+          var formData = new FormData(form);
+          var data = {};
+          formData.forEach(function(value, key){
+            data[key] = value;
+          });
+
+          if (CONFIG_FORM_ENDPOINT && CONFIG_FORM_ENDPOINT.trim() !== "") {
+            fetch(CONFIG_FORM_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify(data)
+            }).then(function() {
+              showSuccess();
+            }).catch(function() {
+              showSuccess();
+            });
+          } else {
+            setTimeout(showSuccess, 400);
+          }
+
+          function showSuccess() {
+            form.classList.add('hidden');
+            if (successBox) successBox.classList.remove('hidden');
+            btn.textContent = oldText;
+            btn.disabled = false;
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
