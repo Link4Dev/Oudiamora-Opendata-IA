@@ -1,0 +1,5 @@
+# robots.txt pour Oudiamora.net
+User-agent: *
+Allow: /
+
+Sitemap: https://oudiamora.net/sitemap.xml

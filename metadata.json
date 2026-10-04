@@ -1,0 +1,6 @@
+{
+  "name": "Oudiamora.net – Open Data, IA & Société Civile",
+  "description": "Plateforme d'accompagnement des OSC d'Afrique francophone : Open Data, Intelligence Artificielle, gouvernance des données et compétences numériques.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38A3A5" />
+      <stop offset="100%" stop-color="#0E3346" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle soft -->
+  <rect width="100" height="100" rx="24" fill="#0B2533" />
+  <!-- Outer orbital ring arc -->
+  <path d="M 50 16 A 34 34 0 1 0 84 58" fill="none" stroke="#2EC4B6" stroke-width="4.5" stroke-linecap="round" />
+  <!-- Satellite nodes -->
+  <circle cx="50" cy="16" r="6" fill="#38A3A5" stroke="#FFFFFF" stroke-width="1.5" />
+  <circle cx="18" cy="66" r="6" fill="#52B788" stroke="#FFFFFF" stroke-width="1.5" />
+  <circle cx="84" cy="58" r="6.5" fill="#38A3A5" stroke="#FFFFFF" stroke-width="1.5" />
+  <!-- Central 'O' and human arc -->
+  <circle cx="50" cy="50" r="17" fill="none" stroke="#FFFFFF" stroke-width="4" />
+  <path d="M 39 52 Q 50 64 61 52" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" />
+</svg>
